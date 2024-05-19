@@ -5,12 +5,13 @@ using namespace std;
 int findPosition(int N) {
     if(N==0) return -1;
     if((N&(N-1))==0){
-        int c=0;
-        while(N){
-            c++;
-            N=N>>1;
-        }
-        return c;
+        // int c=0;
+        // while(N){
+        //     c++;
+        //     N=N>>1;
+        // }
+        // return c;
+        return log2(N)+1;
     } else {
         return -1;
     }
