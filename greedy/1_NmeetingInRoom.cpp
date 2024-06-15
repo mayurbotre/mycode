@@ -29,6 +29,7 @@ void maxMeetings(int s[], int f[], int N) {
 	for (int i = 0; i < m.size(); i++) {
 		cout << m[i] << " ";
 	}
+    cout<< "Execution completed!"<<endl;
 }
 
 int main() {
