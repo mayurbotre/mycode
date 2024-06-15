@@ -3,8 +3,7 @@ using namespace std;
 
 #define MAX 26
 
-string smallestStr(string str, int n)
-{
+string smallestStr(string str, int n) {
 	int i, j;
 
 	int chk[MAX];
