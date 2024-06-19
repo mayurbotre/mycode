@@ -6,7 +6,7 @@ int main(){
     cin>>t;
     while(t--){
         int n;
-        cin>>n;
+        cin>>n; 
         int arr[n];
         int oneCount=0;
         for(int i=0;i<n;i++){ 
