@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 class Node {
 public:
     int data;
@@ -10,24 +11,22 @@ public:
     }
 };
 
-Node* addTwoNumbers(Node* l1, Node* l2)
-{
+Node* addTwoNumbers(Node* l1, Node* l2) {
     Node* prev = NULL;
-    // Create 3 stacks
+
     stack<Node*> s1, s2, s3;
-    // Fill first stack with first List Elements
+
     while (l1 != NULL) {
         s1.push(l1);
         l1 = l1->next;
     }
-    // Fill second stack with second List Elements
+
     while (l2 != NULL) {
         s2.push(l2);
         l2 = l2->next;
     }
     int carry = 0;
-    // Fill the third stack with the sum of first and second
-    // stack
+
     while (!s1.empty() && !s2.empty()) {
         int sum = s1.top()->data + s2.top()->data + carry;
         Node* temp = new Node(sum % 10);
@@ -65,14 +64,12 @@ Node* addTwoNumbers(Node* l1, Node* l2)
         }
         s2.pop();
     }
-    // If carry is still present create a new node with
-    // value 1 and push it to the third stack
+
     if (carry == 1) {
         Node* temp = new Node(1);
         s3.push(temp);
     }
-    // Link all the elements inside third stack with each
-    // other
+
     if (!s3.empty())
         prev = s3.top();
     while (!s3.empty()) {
@@ -88,10 +85,8 @@ Node* addTwoNumbers(Node* l1, Node* l2)
     return prev;
 }
 
-// utility functions
-// Function that displays the List
-void Display(Node* head)
-{
+
+void Display(Node* head) {
     if (head == NULL) {
         return;
     }
@@ -102,9 +97,7 @@ void Display(Node* head)
     cout << head->data << endl;
 }
 
-// Function that adds element at the end of the Linked List
-void push(Node** head_ref, int d)
-{
+void push(Node** head_ref, int d) {
     Node* new_node = new Node(d);
     new_node->next = NULL;
     if (*head_ref == NULL) {
@@ -119,15 +112,13 @@ void push(Node** head_ref, int d)
     last->next = new_node;
     return;
 }
-// Driver Program for above Functions
-int main()
-{
-    // Creating two lists
-    // first list = 9 -> 5 -> 0
-    // second List = 6 -> 7
+
+int main() {
+
     Node* first = NULL;
     Node* second = NULL;
     Node* sum = NULL;
+
     push(&first, 7);
     push(&first, 5);
     push(&first, 9);
@@ -135,12 +126,17 @@ int main()
     push(&first, 6);
     push(&second, 8);
     push(&second, 4);
+
     cout << "First List : ";
     Display(first);
+
     cout << "Second List : ";
     Display(second);
+
     sum = addTwoNumbers(first, second);
+
     cout << "Sum List : ";
     Display(sum);
+
     return 0;
 }
